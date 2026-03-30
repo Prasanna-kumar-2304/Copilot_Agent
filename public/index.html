@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DirectLine Bot Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="chat-container">
+            <!-- Header -->
+            <div class="header">
+                <h1>🤖 DirectLine Bot Chat</h1>
+                <p>Chat with your Microsoft Bot Framework powered agent</p>
+            </div>
+
+            <!-- Chat Messages Area -->
+            <div class="chat-messages" id="chatMessages">
+                <div class="message assistant-message">
+                    <div class="message-content">
+                        <p>👋 Hello! I'm your bot assistant. Ask me anything!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Token Usage Info -->
+            <div class="token-info" id="tokenInfo" style="display: none;">
+                <small id="tokenText"></small>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <textarea 
+                    id="messageInput" 
+                    placeholder="Type your message here... (Shift+Enter for new line, Enter to send)"
+                    rows="3"
+                ></textarea>
+                <div class="button-group">
+                    <button id="sendBtn" class="send-btn">
+                        <span>Send</span>
+                        <span class="separator">•</span>
+                        <span class="shortcut">⏎</span>
+                    </button>
+                    <button id="clearBtn" class="clear-btn" title="Clear conversation">
+                        🗑️ Clear
+                    </button>
+                </div>
+            </div>
+
+            <!-- Status Indicator -->
+            <div class="status-bar">
+                <span id="statusText" class="status">Ready</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

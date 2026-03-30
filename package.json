@@ -1,0 +1,19 @@
+{
+  "name": "copilot-chat-app",
+  "version": "1.0.0",
+  "description": "Chat application with Copilot API integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["copilot", "chat", "api"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.0.3",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5"
+  }
+}
