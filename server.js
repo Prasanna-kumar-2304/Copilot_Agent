@@ -18,8 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const conversationSessions = {};
 
 // DirectLine API Configuration
-const DIRECTLINE_API_URL = process.env.DIRECTLINE_API_URL || 'https://directline.botframework.com/v3/directline';
-let DIRECTLINE_TOKEN = process.env.DIRECTLINE_TOKEN;
+const DIRECTLINE_API_URL = process.env.directline_api_url || process.env.DIRECTLINE_API_URL || 'https://directline.botframework.com/v3/directline';
+let DIRECTLINE_TOKEN = process.env.directline_token || process.env.DIRECTLINE_TOKEN;
 
 // Clean token - remove 'Bearer ' prefix if it exists
 if (DIRECTLINE_TOKEN && DIRECTLINE_TOKEN.startsWith('Bearer ')) {
