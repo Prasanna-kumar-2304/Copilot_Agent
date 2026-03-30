@@ -124,8 +124,8 @@ async function sendMessage() {
                 }),
             });
 
-            console.log('📮 Retry Chat Response:', retryData);
             const retryData = await retryResponse.json();
+            console.log('📮 Retry Chat Response:', retryData);
             removeLoadingMessage();
 
             if (!retryResponse.ok) {
