@@ -1,0 +1,76 @@
+{
+  "flowName": "DirectLineChat",
+  "description": "Send and receive messages from DirectLine Bot",
+  "triggers": [
+    {
+      "type": "powerapp",
+      "displayName": "When Power Apps calls a flow",
+      "inputs": {
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "title": "Message",
+              "type": "string"
+            },
+            "sessionId": {
+              "title": "Session ID",
+              "type": "string"
+            }
+          },
+          "required": ["message", "sessionId"]
+        }
+      }
+    }
+  ],
+  "actions": [
+    {
+      "type": "http",
+      "displayName": "Send Message to DirectLine",
+      "inputs": {
+        "method": "POST",
+        "uri": "https://copilot-agent-kappa.vercel.app/api/chat",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "message": "@triggerBody()['message']",
+          "sessionId": "@triggerBody()['sessionId']"
+        }
+      }
+    },
+    {
+      "type": "parseJson",
+      "displayName": "Parse Response",
+      "inputs": {
+        "content": "@body('Send Message to DirectLine')",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string"
+            },
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "respondToPowerApp",
+      "displayName": "Respond to Power App",
+      "inputs": {
+        "statusCode": 200,
+        "body": {
+          "success": "@body('Parse Response')['success']",
+          "message": "@body('Parse Response')['message']",
+          "error": "@body('Parse Response')['error']"
+        }
+      }
+    }
+  ]
+}
