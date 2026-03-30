@@ -83,6 +83,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Power Apps Code App Route
+app.get('/power-app', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'power-apps-codeapp.html'));
+});
+
 // Initialize conversation endpoint
 app.post('/api/init', async (req, res) => {
   try {
