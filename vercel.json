@@ -11,9 +11,5 @@
       "src": "/(.*)",
       "dest": "server.js"
     }
-  ],
-  "env": {
-    "DIRECTLINE_API_URL": "@directline_api_url",
-    "DIRECTLINE_TOKEN": "@directline_token"
-  }
+  ]
 }
